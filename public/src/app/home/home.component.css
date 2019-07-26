@@ -24,6 +24,9 @@
     margin-left: 750px;
     display: inline-block;
 }
+.inline-block{
+    display: inline-block;
+}
 
 .slider-frame{
     overflow: hidden;

@@ -14,6 +14,36 @@ module.exports = {
             }
         })
     },
+    login:(req,res)=>{
+        console.log(req.body.username,'Username');
+        Users.findOne({username:req.body.username},(err,user)=>{
+            if(err){
+                res.json({message: "Error with login", error: err})
+            }
+            else if(user){
+                Users.findOne({username:req.body.username,password:req.body.password},(err,users)=>{
+                    if(err){
+                        res.json(err);
+                        console.log('Password Does Not Match')
+                    }
+                    if(users){
+                        // req.session.em=users.email;
+                        console.log(users,"users");
+                        res.json({message: "Succesfully",user:users});
+                    }
+                    else{
+                        console.log('Password Does Not Match!')
+                        res.json({message: "Username or password is not valid"})
+                    }
+
+                })
+            }
+            else{
+                console.log('Username Does Not Exist');
+                res.json({message: "Username or password is not valid"})
+            }
+        })
+    },
     create: (req, res) =>{
         console.log(req.body, "this is the form")
         Items.create(req.body, (err, item)=>{

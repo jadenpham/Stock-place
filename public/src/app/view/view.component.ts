@@ -7,7 +7,8 @@ import { ActivatedRoute, Params, Router, Route } from '@angular/router';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-
+  bag: boolean;
+  count = 0;
   constructor(private _httpService: HttpService, //connecting component to httpservice
     private _route: ActivatedRoute,
     private _router: Router,
@@ -27,13 +28,15 @@ export class ViewComponent implements OnInit {
         this.item_data = data;
       })
     })
-    
+    this.bag = false;
   }
   addToCart(item){
     this.cart.push(item)
     console.log(item, "this is item")
     this._httpService.cart=this.cart;
     this.itemInCart();
+    this.bag = true;
+    this.count += 1;
   }
   itemInCart(){
     // console.log(this.cart, "items in cart")

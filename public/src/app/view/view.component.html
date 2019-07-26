@@ -1,6 +1,9 @@
 <div class="view">
     <h3 class="mt-5 ml-5">Item Detail</h3>
     <div class="view-container m-5 shadow-lg p-5 mb-5 bg-white inline-block">
+        <div *ngIf="bag">
+            <p class="text-success">Added to cart ({{count}})</p>
+        </div>
         <h5>Item title: {{item_data?.item.title}}</h5>
         <h5>Price: ${{item_data?.item.price}}</h5>
         <h5>Condition: {{item_data?.item.description}}</h5>

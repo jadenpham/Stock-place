@@ -26,8 +26,11 @@ export class CartComponent implements OnInit {
   }
   emptyCart(){
     this.cart= [];
-    console.log(this.cart);
+    // console.log(this.cart);
+    this._httpService.cart = this.cart;
     this.total = 0;
+    this._httpService.total = this.total;
+    this._httpService.numOfItems = 0;
     this._router.navigate(['/confirm'])
   }
 

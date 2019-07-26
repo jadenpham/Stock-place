@@ -14,7 +14,12 @@ module.exports = function(app){
     app.get('/one/:id', (req, res)=>{
         items.one(req,res);
     })
+    app.post('/login', (req,res)=>{
+        console.log('Testing in routes.js')
+        items.login(req,res);
+    })
     app.all("*", (req, res, next) =>{
         res.sendFile(path.resolve("./public/dist/public/index.html"))
     })
+  
 }

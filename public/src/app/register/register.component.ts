@@ -17,18 +17,19 @@ export class RegisterComponent implements OnInit {
   
   
   ngOnInit() {
-    this.user_info= {username: "", email: "", password: "", cpw: ""};
+    this.user_info= {username: "", email: "", password: "", cw: ""};
   }
   register(user_info){
     console.log("hit this succesfully", this.user_info);
     // if( this.user_info.password != this.user_info.cpw){
     //   this.err.pw = "Password does not match";
     //   console.log(this.err.pw, "this is error message for pw") } else
-     if( this.user_info.password === this.user_info.cpw){
+     if( this.user_info.password === this.user_info.cw){
       this._httpService.register(this.user_info).subscribe(data =>{
         console.log(data, "hits the component");
         this.user_info = data;
         if(data['user']){
+          console.log('Testing')
           this._route.navigate([''])
         } else{
           this.err = data['errors'];

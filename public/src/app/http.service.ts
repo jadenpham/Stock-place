@@ -27,6 +27,10 @@ export class HttpService {
   one_item(id){
     return this._http.get(`/one/${id}`);
   }
+  login(user){
+    console.log(user,'testing User Infor');
+    return this._http.post('/login',user)
+  }
 
 }
 

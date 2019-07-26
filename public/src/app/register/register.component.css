@@ -11,13 +11,16 @@
     vertical-align: top;
     width: 500px;
 }
-.move-left-fn{
-    margin-left: 2px;
-}.move-left-ln{
-    margin-left: 4px;
-}.move-left-email{
-    margin-left: 41px;
-}.move-left-pw{
+.move-left-ln{
+    margin-left: 73px;
+}
+.move-left-email{
+    margin-left: 105px;
+}
+.move-left-pw{
+    margin-left: 73px;
+}
+.move-left-cp{
     margin-left: 10px;
 }
 

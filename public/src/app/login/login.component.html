@@ -2,15 +2,16 @@
     <!-- body -->
     <div class="login">
         <h3 class="mt-5 ml-5">Welcome back</h3>
-        <form class="m-5 shadow-lg p-5 mb-5 bg-white rounded form-size inline-block">
+        <form class="m-5 shadow-lg p-5 mb-5 bg-white rounded form-size inline-block" (submit)="login()">
             <fieldset>
                 <div class="form-group">
-                    <label class="underline">Email:</label>
-                    <input class="move-left-email" type="text" name="email">
+                    <p class="small text-danger" *ngIf="loginerror">{{loginerror}}</p>
+                    <label class="underline">Username:</label>
+                    <input class="move-left-email" type="text" name="userinfo.username" [(ngModel)]= "userinfo.username">
                 </div>
                 <div class="form-group">
                     <label class="underline">Password:</label>
-                    <input class="move-left-pw" type="text" name="pw">
+                    <input class="move-left-pw" type="password" name="userinfo.password"  [(ngModel)]= "userinfo.password">
                 </div>
                 <input class="btn btn-primary" type="submit" value="Login">
             </fieldset>

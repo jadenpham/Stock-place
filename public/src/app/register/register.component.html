@@ -2,23 +2,23 @@
         <!-- body -->
         <div class="register">
             <h3 class="mt-5 ml-5">Create Account</h3>
-            <form class="m-5 shadow-lg p-5 mb-5 bg-white rounded form-size inline-block">
+            <form class="m-5 shadow-lg p-5 mb-5 bg-white rounded form-size inline-block" (submit)="register()">
                 <fieldset>
                     <div class="form-group">
-                        <label class="underline">First Name:</label>
-                        <input class="move-left-fn" type="text" name="first_name">
-                    </div>
-                    <div class="form-group">
-                        <label class="underline">Last Name:</label>
-                        <input class="move-left-ln" type="text" name="Last_name">
+                        <label class="underline">Username:</label>
+                        <input class="move-left-ln" type="text" name="user_info.username" [(ngModel)]="user_info.username" >
                     </div>
                     <div class="form-group">
                         <label class="underline">Email:</label>
-                        <input class="move-left-email" type="text" name="email">
+                        <input class="move-left-email" type="text" name="user_info.email" [(ngModel)]="user_info.email" >
                     </div>
                     <div class="form-group">
-                        <label class="underline">Password:</label>
-                        <input class="move-left-pw" type="text" name="pw">
+                        <label class="underline">Password:</label>    
+                        <input class="move-left-pw" type="text" name="user_info.password" [(ngModel)]="user_info.password" >
+                    </div>
+                    <div class="form-group">
+                            <label class="underline">Confirm Password:</label>
+                            <input class="move-left-cp" type="text" name="user_info.cw" [(ngModel)]="user_info.cw" >
                     </div>
                     <input class="btn btn-primary" type="submit" value="Login">
                 </fieldset>
