@@ -1,0 +1,11 @@
+<div>
+    <h1>All Items</h1>
+    <div *ngFor="let item of all_items">
+        <img src="{{item.imgUrl}}">
+        <h3>Item: {{item.title}}</h3>
+        <h3>Price: ${{item.price}}</h3>
+        <!-- <h3>Condition: {{item.description}}</h3>
+        <h3>Brand: {{item.brand}}</h3> -->
+        <button [routerLink]="['view', item._id]">View</button>
+    </div>
+</div>

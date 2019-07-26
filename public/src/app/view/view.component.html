@@ -1,0 +1,10 @@
+<div>
+    <h1>Item Detail</h1>
+    <h3>Item title: {{item_data?.item.title}}</h3>
+    <h3>Price: ${{item_data?.item.price}}</h3>
+    <h3>Condition: {{item_data?.item.description}}</h3>
+    <h3>Brand: {{item_data?.item.brand}}</h3>
+    <button (click)=addToCart(item_data?.item)>Add to cart</button>
+    <button [routerLink]="['/cart']">View cart</button>
+    <div *ngFor="let item of cart">{{item}}</div>
+</div>

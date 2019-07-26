@@ -1,0 +1,22 @@
+<div class="sell">
+    <h1>Upload your item here!</h1>
+    <div class="form">
+        <form (submit) = sell()>
+            <h3>Item title: <input type="text" name="item_info?.title" [(ngModel)] = "item_info.title" ></h3>
+            <h3>Asking price: <input type="text" name="item_info?.price" [(ngModel)] = "item_info.price"></h3>
+            <h3>Image Url: <input type="text" name="item_info?.imgUrl" [(ngModel)] = "item_info.imgUrl"></h3>
+            <h3>Item Condition: <select type="text" name="item_info?.description" [(ngModel)] = "item_info.description">
+                <option value="New">New</option>    
+                <option value="Slighty used">Slightly used</option>    
+                <option value="Used">Used</option>    
+            </select>
+            </h3>
+            <h3>Brand: <select name="brand" name="item_info?.brand" [(ngModel)] = "item_info.brand">
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Jordan">Jordan</option>
+            </select></h3>
+            <input type="submit" value="Sell item">
+        </form>
+    </div>
+</div>
