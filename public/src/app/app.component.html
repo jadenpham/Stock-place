@@ -1,16 +1,29 @@
-<div>
-  <div class="navbar">
-    <div class="navbarleft">
-    <h3><a href="/">Logo</a></h3>
-    </div> 
-    <div class="navbarlogin"> 
-      <h3><a [routerLink] = "['login']">Login</a></h3>
-      <h3><a [routerLink] = "['register']">Register</a></h3>
-      <h3><a [routerLink] = "['sell']">Sell</a></h3>
-      <h3><a [routerLink] = "['browse']">Browse All</a></h3>
-      <h3><a [routerLink] = "['cart']">View cart</a></h3>
-  </div>
-  <img src="./../../../static/images/e5c1cf53-795b-40f4-b189-dcaf24352db7_200x200.png" alt="">
-</div>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed">
+  <a class="navbar-brand" href="#">Stock Palace</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div class="collapse navbar-collapse move-left" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['']">Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['browse']">Browse</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['sell']">Sell</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['login']">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink] = "['register']">Sign Up</a>
+      </li>
+      </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>
