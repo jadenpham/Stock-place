@@ -32,6 +32,9 @@ export class HttpService {
     console.log(user,'testing User Infor');
     return this._http.post('/login',user)
   }
+  shoppingcart(cart){
+    console.log(cart, "this is the cart in service");
+  }
 
 }
 

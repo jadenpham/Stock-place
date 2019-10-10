@@ -23,4 +23,16 @@ export class CartComponent implements OnInit {
     this.totalItem = this._httpService.numOfItems;
   }
 
+  removeItem(item){
+    //remove item by id
+    for(let i in this.cart){
+      if(this.cart[i]['_id'] === item['_id']){
+        this.cart.splice(Number(i), 1);
+        this._httpService.cart = this.cart;
+        this.totalItem = this.cart.length;
+        this._httpService.total -= item.price;
+        this.total = this._httpService.total;
+      }
+    }
+  }
 }

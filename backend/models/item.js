@@ -16,5 +16,9 @@ var UserSchema = new mongoose.Schema({
     password: {type: String, required: [true, "Must provide a password"]}
 })
 
+var CartSchema = new mongoose.Schema({
+    cartlist: [{type: Object}]
+})
 mongoose.model("Items", ItemSchema);
 mongoose.model("Users", UserSchema);
+mongoose.model("Cart", CartSchema);

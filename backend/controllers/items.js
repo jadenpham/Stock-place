@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var Users = mongoose.model("Users");
 var Items = mongoose.model("Items");
+var Cart = mongoose.model("Cart");
 module.exports = {
     register: (req, res) =>{
         // console.log(req.body, "this is the req.body");
@@ -71,5 +72,8 @@ module.exports = {
                 res.json({message:"Success", item:item})
             }
         })
-    }
+    },
+    // cart:(req, res)=>{
+    //     Cart.create()
+    // }
 }
