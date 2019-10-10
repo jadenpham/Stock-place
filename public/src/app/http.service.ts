@@ -8,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
   constructor(private _http: HttpClient) { }
-  cart: Array<Object>=[]; //setting array here so components can grab it
-  numOfItems: Number;
-  total: Number;
+  public cart: Array<Object>=[]; //setting array here so components can grab it
+  public numOfItems: Number;
+  public total = 0;
+  public wishlist: Array<object> = [];
 
   register(user){
     // let hashed= bcrypt.hash(user.password);

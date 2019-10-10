@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { SellComponent } from './sell/sell.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: "browse", component: AllComponent},
   {path: "browse/view/:id", component: ViewComponent},
   {path: "cart", component: CartComponent},
-  {path: "confirm", component: ConfirmationComponent}
+  {path: "confirm", component: ConfirmationComponent},
+  {path: "wishlist", component: WishlistComponent},
 ];
 
 @NgModule({

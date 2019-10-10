@@ -1,0 +1,10 @@
+<div *ngFor = "let item of wishlist" >
+    <!-- need to loop thru the wishlist to show items -->
+        <h5>Item: {{item.title}}</h5>
+        <h5>Brand: {{item.brand}}</h5>
+        <h5>Price: {{item.price}}</h5>
+        <h5>Condition: {{item.description}}</h5>
+        <img src="{{item.imgUrl}}" alt="">
+        <button class="btn btn-primary" (click)=addToCart(item)>Add to cart</button>
+        <!-- <button class="btn btn-primary" (click)=removeItemAfterAdded(item._id)>Remove</button> -->
+</div>

@@ -12,6 +12,8 @@ import { AllComponent } from './all/all.component';
 import { ViewComponent } from './view/view.component';
 import { CartComponent } from './cart/cart.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { HttpService } from './http.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     ViewComponent,
     CartComponent,
     ConfirmationComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
