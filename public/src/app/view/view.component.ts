@@ -9,7 +9,8 @@ import { ActivatedRoute, Params, Router, Route } from '@angular/router';
 export class ViewComponent implements OnInit {
   bag: boolean;
   count = 0;
-  constructor(private _httpService: HttpService, //connecting component to httpservice
+  //connecting to httpservice to get info
+  constructor(private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router,
     ) { }
@@ -35,31 +36,30 @@ export class ViewComponent implements OnInit {
     this.bag = false;
   }
   addToCart(item){
-    this.cart.push(item)
-    // console.log(item, "this is item")
-    this._httpService.cart=this.cart;
-    this.itemInCart();
+    this._httpService.cart.push(item);
+    this._httpService.total += item.price;
+    this._httpService.numOfItems = this._httpService.cart.length;
     this.bag = true;
     this.count += 1;
   }
   //adding to wish list by pushing the item into array of objects
   addToWishList(item){
     //now just need to push item into the wishlist
-    this.wishlist.push(item);
-    this._httpService.wishlist = this.wishlist;
+    this._httpService.wishlist.push(item);
   }
-  itemInCart(){
-    // console.log(this.cart, "items in cart")
-    this.numOfItems= this.cart.length;
-    // console.log(this.numOfItems);
-    this._httpService.numOfItems = this.numOfItems;
-    this.total = 0; //sets total back to 0 when function is called, else it will compound all of the items
-    for(let x of this.cart){
-      // console.log(x['price'], "this is x result");
-      this.total = this.total + x['price'];
-      // console.log(this.total);
-      this._httpService.total = this.total;
-      console.log(this._httpService.total);
-    }
-  }
+  //dont need this function anymore, doing it directly when adding to cart
+  // itemInCart(){
+  //   // console.log(this.cart, "items in cart")
+  //   this.numOfItems= this.cart.length;
+  //   // console.log(this.numOfItems);
+  //   this._httpService.numOfItems = this.numOfItems;
+  //   this.total = 0; //sets total back to 0 when function is called, else it will compound all of the items
+  //   for(let x of this.cart){
+  //     // console.log(x['price'], "this is x result");
+  //     this.total = this.total + x['price'];
+  //     // console.log(this.total);
+  //     this._httpService.total = this.total;
+  //     console.log(this._httpService.total);
+  //   }
+  // }
 }

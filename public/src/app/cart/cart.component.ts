@@ -19,20 +19,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cart = this._httpService.cart;
-    // console.log("this.cart is", this.cart);
     this.total = this._httpService.total;
-    console.log(this.total);
     this.totalItem = this._httpService.numOfItems;
-    // console.log(this.total, "this is the total")
   }
-  // emptyCart(){
-  //   this.cart= [];
-  //   // console.log(this.cart);
-  //   this._httpService.cart = this.cart;
-  //   this.total = 0;
-  //   this._httpService.total = this.total;
-  //   this._httpService.numOfItems = 0;
-  //   this._router.navigate(['/confirm'])
-  // }
 
 }

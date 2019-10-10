@@ -17,7 +17,6 @@ export class SellComponent implements OnInit {
   this.item_info= {title: "", price: "", imgUrl: "", description: "", brand: ""};
   }
   sell(item_info){
-    console.log(this.item_info, "this is the form")
     this._httpService.sell(this.item_info).subscribe(data =>{
       this.item_info = data;
       this._route.navigate(['browse'])
