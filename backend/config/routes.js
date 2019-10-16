@@ -18,6 +18,10 @@ module.exports = function(app){
         console.log('Testing in routes.js')
         items.login(req,res);
     })
+    app.post('/addItemToDb', (req, res)=>{
+        console.log('here in routes');
+        items.addToCart(req, res);
+    })
     app.all("*", (req, res, next) =>{
         res.sendFile(path.resolve("./public/dist/public/index.html"))
     })

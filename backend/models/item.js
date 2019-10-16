@@ -13,7 +13,8 @@ var ItemSchema = new mongoose.Schema({
 var UserSchema = new mongoose.Schema({
     username: {type: String, required: [true, "Must provide a user name"], minlength: [5, "Must be longer than 5 characters"]},
     email: {type: String, require: [true, "Must provide an email"] },
-    password: {type: String, required: [true, "Must provide a password"]}
+    password: {type: String, required: [true, "Must provide a password"]},
+    cart: [ItemSchema]
 })
 
 var CartSchema = new mongoose.Schema({

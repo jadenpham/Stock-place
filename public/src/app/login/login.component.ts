@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   loginerror:any;
 
   login(){
-    console.log(this.userinfo,'Testing UserInfor');
+    // console.log(this.userinfo,'Testing UserInfor');
     this._httpService.login(this.userinfo).subscribe(data=>{
       if(data['user']){
-        console.log('Testing A')
+        // console.log('Testing A')
         this._route.navigate(['']);
       }
       else if(data['err']){
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         console.log(this.err, "this is the error message");
       }
       else{
-        console.log('TEsting e')
+        // console.log('TEsting e')
         this.loginerror = data['message']
         //put this loginerror for error 
       }

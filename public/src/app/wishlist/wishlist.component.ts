@@ -12,7 +12,6 @@ export class WishlistComponent implements OnInit {
   //output to httpservice to update cart when clicked
   @Output() public child_wishlist = new EventEmitter();
   public cart: Array<Object> = [];
-
   //connecting to service
   constructor(private _httpService: HttpService) { }
   ngOnInit() {

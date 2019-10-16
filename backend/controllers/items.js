@@ -73,7 +73,12 @@ module.exports = {
             }
         })
     },
-    // cart:(req, res)=>{
-    //     Cart.create()
-    // }
+    addToCart:(req, res)=>{
+        console.log("in controller w item", req.body)
+        Cart.create(req.body)
+            .then(
+                res.json({message:"succesfull added item to db"})
+            )
+            .catch(err => res.json(err));
+    }
 }

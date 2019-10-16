@@ -14,9 +14,6 @@ export class HttpService {
   public wishlist: Array<object> = [];
 
   register(user){
-    // let hashed= bcrypt.hash(user.password);
-    // console.log(hashed, "this is the hashed pw")
-    // console.log(user, "this is the user info")
     return this._http.post('/register', user)
   }
   sell(item){
@@ -32,8 +29,9 @@ export class HttpService {
     console.log(user,'testing User Infor');
     return this._http.post('/login',user)
   }
-  shoppingcart(cart){
-    console.log(cart, "this is the cart in service");
+  addItemToDb(item){
+    console.log(item, "this is the item in service", item);
+    return this._http.post('/addItemToDb', item);
   }
 
 }

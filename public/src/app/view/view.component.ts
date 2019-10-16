@@ -22,6 +22,7 @@ export class ViewComponent implements OnInit {
   alert: any;
   numOfItems: any;
   total=0;
+  public itemToCart: any;
   ngOnInit() {
     //on init, set this wishlist to the one in service
     this.wishlist = this._httpService.wishlist;
@@ -41,12 +42,19 @@ export class ViewComponent implements OnInit {
     this._httpService.numOfItems = this._httpService.cart.length;
     this.bag = true;
     this.count += 1;
+    //when add to cart, also add to db to save all items
+    this._httpService.addItemToDb(item).subscribe(data => this.itemToCart = data);
   }
   //adding to wish list by pushing the item into array of objects
   addToWishList(item){
     //now just need to push item into the wishlist
     this._httpService.wishlist.push(item);
   }
+
+
+
+
+
   //dont need this function anymore, doing it directly when adding to cart
   // itemInCart(){
   //   // console.log(this.cart, "items in cart")
