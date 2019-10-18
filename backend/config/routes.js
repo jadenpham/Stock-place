@@ -22,6 +22,10 @@ module.exports = function(app){
         console.log('here in routes');
         items.addToCart(req, res);
     })
+    app.get('/validate',(req,res)=>{
+        console.log('Testing In Route.JS In Validate')
+        items.validate(req,res)
+    })
     app.all("*", (req, res, next) =>{
         res.sendFile(path.resolve("./public/dist/public/index.html"))
     })

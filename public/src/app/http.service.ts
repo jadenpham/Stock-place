@@ -14,6 +14,7 @@ export class HttpService {
   public wishlist: Array<object> = [];
 
   register(user){
+    console.log("hit register in service")
     return this._http.post('/register', user)
   }
   sell(item){
@@ -32,6 +33,10 @@ export class HttpService {
   addItemToDb(item){
     console.log(item, "this is the item in service", item);
     return this._http.post('/addItemToDb', item);
+  }
+  checkValid(){
+    console.log('Testing Valid In HTTPservice')
+    return this._http.get('/validate')
   }
 
 }

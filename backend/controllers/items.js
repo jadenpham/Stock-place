@@ -28,7 +28,7 @@ module.exports = {
                         console.log('Password Does Not Match')
                     }
                     if(users){
-                        // req.session.em=users.email;
+                        req.session.email=users.email;
                         console.log(users,"users");
                         res.json({message: "Succesfully",user:users});
                     }
@@ -80,5 +80,18 @@ module.exports = {
                 res.json({message:"succesfull added item to db"})
             )
             .catch(err => res.json(err));
+    },
+    validate:(req,res)=>{
+        console.log("in valid in controller")
+        console.log(req.session, "session");
+        console.log(req.session.email, "email");
+        // console.log(req.session._expires,'Expires Session');
+        if(req.session.email){
+            console.log('Testing In items.js validate')
+            res.json({message:"Success"});
+        }
+        else{
+            res.json({error:"Errors"})
+        }
     }
 }
