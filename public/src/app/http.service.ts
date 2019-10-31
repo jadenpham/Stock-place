@@ -12,9 +12,9 @@ export class HttpService {
   public numOfItems: Number;
   public total = 0;
   public wishlist: Array<object> = [];
+  public userid: any;
 
   register(user){
-    console.log("hit register in service")
     return this._http.post('/register', user)
   }
   sell(item){
@@ -27,17 +27,15 @@ export class HttpService {
     return this._http.get(`/one/${id}`);
   }
   login(user){
-    console.log(user,'testing User Infor');
+    // console.log(user,'testing User Info in service');
     return this._http.post('/login',user)
   }
   addItemToDb(item){
     console.log(item, "this is the item in service", item);
     return this._http.post('/addItemToDb', item);
   }
-  checkValid(){
-    console.log('Testing Valid In HTTPservice')
-    return this._http.get('/validate')
+  logOut(){
+    return this._http.get('/logout')
   }
-
 }
 

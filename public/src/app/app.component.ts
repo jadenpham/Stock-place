@@ -7,38 +7,42 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'public';
-  valid:boolean;
-  constructor(private _httpService: HttpService,private _route:Router) { }
+  userLoggedIn = true;
+  isLoggedIn:boolean;
+  constructor(private _httpService: HttpService,private _route:Router) {}
   ngOnInit() {
-    this.checkvalid();
+    this.isUserLoggedIn();
+  }
+  ngDoCheck(){
+    if(this._httpService.userid){
+      this.isLoggedIn = true;
+    }
+    else{
+      this.isLoggedIn = false;
+    }
   }
   refresh(): void{
+    console.log("refreshed")
     window.location.reload();
   }
-  checkvalid(){
-    this._httpService.checkValid().subscribe(data=>{
-      if(data['message']){
-        this.valid=true;
-        console.log('OKay')
-      }
-      else{
-        this.valid=false;
-        console.log('NOtOKay')
-      }
-    })
+  //checking if user logged in, hides features if not
+  isUserLoggedIn(){
+    if(this._httpService.userid){
+      this.isLoggedIn = true;
+      console.log("user is logged in")
+    }
+    else{
+      console.log("user has not signed on")
+      this.isLoggedIn = false;
+    }
   }
-  // `logout(){
-  //   this._httpService.logout().subscribe(data=>{
-  //     if(data['message']){
-  //       console.log('Log Out Successful')
-  //       this._route.navigate(['']);
-  //       this.refresh();
-  //     }
-  //     else{
-  //       console.log('Errorz')
-  //     }
-  //   })
-  // }`
+  //logout func, clears sess and httpservice.userid
+  LogOut(){
+    console.log("logging out");
+    this._httpService.logOut().subscribe(data => { console.log(data);
+    })
+    this._httpService.userid = null;
+  }
 }

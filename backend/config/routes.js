@@ -15,16 +15,20 @@ module.exports = function(app){
         items.one(req,res);
     })
     app.post('/login', (req,res)=>{
-        console.log('Testing in routes.js')
+        console.log('Testing login in routes.js')
         items.login(req,res);
     })
     app.post('/addItemToDb', (req, res)=>{
-        console.log('here in routes');
+        // console.log('here in routes');
         items.addToCart(req, res);
     })
     app.get('/validate',(req,res)=>{
-        console.log('Testing In Route.JS In Validate')
+        console.log('Testing valid in Route.JS')
         items.validate(req,res)
+    })
+    app.get('/logout', (req, res)=>{
+        console.log("logout in routes")
+        items.logOut(req,res)
     })
     app.all("*", (req, res, next) =>{
         res.sendFile(path.resolve("./public/dist/public/index.html"))

@@ -28,9 +28,9 @@ module.exports = {
                         console.log('Password Does Not Match')
                     }
                     if(users){
-                        req.session.email=users.email;
-                        console.log(users,"users");
-                        res.json({message: "Succesfully",user:users});
+                        req.session.userId = users._id;
+                        // res.json({message: "Succesfully",user:users, userid: req.session.userId});
+                        res.json({userid: req.session.userId});
                     }
                     else{
                         console.log('Password Does Not Match!')
@@ -73,22 +73,31 @@ module.exports = {
             }
         })
     },
+    // addToCart:(req, res)=>{
+    //     console.log("in controller w item", req.body)
+    //     Cart.create(req.body)
+    //         .then(
+    //             res.json({message:"succesfull added item to db"})
+    //         )
+    //         .catch(err => res.json(err));
+    // },
     addToCart:(req, res)=>{
-        console.log("in controller w item", req.body)
-        Cart.create(req.body)
-            .then(
-                res.json({message:"succesfull added item to db"})
-            )
-            .catch(err => res.json(err));
+      Cart.create(req.body, (err, item) =>{
+          if(err){
+              res.json(err)
+          }
+          res.json(item);
+      })  
+    },
+    logOut:(req, res)=>{
+        req.session.destroy();
+        res.json({message: "logout successful"})
     },
     validate:(req,res)=>{
         console.log("in valid in controller")
-        console.log(req.session, "session");
-        console.log(req.session.email, "email");
-        // console.log(req.session._expires,'Expires Session');
-        if(req.session.email){
-            console.log('Testing In items.js validate')
-            res.json({message:"Success"});
+        if(req.session.userId){
+            console.log('Testing validate in items.js validate')
+            res.json({message:"User is not logged in"});
         }
         else{
             res.json({error:"Errors"})

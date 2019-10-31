@@ -1,5 +1,5 @@
 import { HttpService } from './../http.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,22 +7,27 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnChanges {
 
   constructor(private _httpService: HttpService,private _route:Router) { }
-
-  ngOnInit() {
-    this.userinfo = {username: "", password: ""};
+  // @Input() loggedIn: boolean;
+  @Input() loggedIn: boolean;
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes);
   }
+  // ngOnInit() {
+  //   this.userinfo = {username: "", password: ""};
+  // }
   userinfo:any={};
   err:any;
   loginerror:any;
+  userid: any;
 
   login(){
-    // console.log(this.userinfo,'Testing UserInfor');
     this._httpService.login(this.userinfo).subscribe(data=>{
-      if(data['user']){
-        // console.log('Testing A')
+      if(data['userid']){
+        //store session to service to be acessible in app component
+        this._httpService.userid = data['userid'];
         this._route.navigate(['']);
       }
       else if(data['err']){
@@ -30,11 +35,8 @@ export class LoginComponent implements OnInit {
         console.log(this.err, "this is the error message");
       }
       else{
-        // console.log('TEsting e')
         this.loginerror = data['message']
-        //put this loginerror for error 
       }
     })
   }
-
 }
