@@ -92,15 +92,5 @@ module.exports = {
     logOut:(req, res)=>{
         req.session.destroy();
         res.json({message: "logout successful"})
-    },
-    validate:(req,res)=>{
-        console.log("in valid in controller")
-        if(req.session.userId){
-            console.log('Testing validate in items.js validate')
-            res.json({message:"User is not logged in"});
-        }
-        else{
-            res.json({error:"Errors"})
-        }
     }
 }

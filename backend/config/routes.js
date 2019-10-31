@@ -22,10 +22,6 @@ module.exports = function(app){
         // console.log('here in routes');
         items.addToCart(req, res);
     })
-    app.get('/validate',(req,res)=>{
-        console.log('Testing valid in Route.JS')
-        items.validate(req,res)
-    })
     app.get('/logout', (req, res)=>{
         console.log("logout in routes")
         items.logOut(req,res)

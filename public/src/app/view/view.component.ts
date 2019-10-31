@@ -7,7 +7,7 @@ import { ActivatedRoute, Params, Router, Route } from '@angular/router';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  bag: boolean;
+  // bag: boolean;
   count = 0;
   //connecting to httpservice to get info
   constructor(private _httpService: HttpService,
@@ -29,21 +29,20 @@ export class ViewComponent implements OnInit {
     this.cart=this._httpService.cart;
     this._route.params.subscribe((params: Params)=>{
       this.this_id = params['id'];
-      // console.log(this.this_id);
       this._httpService.one_item(params['id']).subscribe( data =>{
         this.item_data = data;
       })
     })
-    this.bag = false;
+    // this.bag = false;
   }
   addToCart(item){
     this._httpService.cart.push(item);
     this._httpService.total += item.price;
     this._httpService.numOfItems = this._httpService.cart.length;
-    this.bag = true;
+    // this.bag = true;
     this.count += 1;
     //when add to cart, also add to db to save all items
-    this._httpService.addItemToDb(item).subscribe(data => this.itemToCart = data);
+    // this._httpService.addItemToDb(item).subscribe(data => this.itemToCart = data);
   }
   //adding to wish list by pushing the item into array of objects
   addToWishList(item){
